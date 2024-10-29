@@ -45,7 +45,7 @@
 <section id="about" class="about">
   <h1>Tentang Kami</h1>
     <div class="container-about">
-      <div class="image-about">
+      <div class="Image-about">
         <a href="https://www.instagram.com/samuel_alfredo_/"><img src="Image/samuel3.jpg" alt="Samuel"></a>
         <a href="https://www.instagram.com/rafiazisr/"><img src="Image/rafi1.jpg" alt="Rafi"></a>
         <a href="https://www.instagram.com/rizkysghr/"><img src="Image/rizki.jpg" alt="Risky"></a>
@@ -129,7 +129,7 @@
   <h1>PROJECT</h1>
   <div class="project-grid">
     <div class="project-card">
-      <a href="https://samuelalfredosilla.github.io/PawonMbokRin/"><img src="asset/Image/Pawon mbokrin.png" alt="WebSite Pawon MbokRin"></a>
+      <a href="https://samuelalfredosilla.github.io/PawonMbokRin/"><img src="Image/Pawon mbokrin.png" alt="WebSite Pawon MbokRin"></a>
       <p>PawonMbokRin</p>
     </div>
     <div class="project-card">
@@ -176,23 +176,19 @@
 
           <button type="submit">Send</button>
       </form>
-      <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyqMeDwiX_wRA19g5lT-6Egj9fQQaMkzqP6uQoC0ipCa5xPm97q1xLi34chFqon_EXNKA/exec'
-        const form = document.forms['contact-form-submissions']
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        })
-      </script>
+    </div>
   </div>
-</div>
-<!-- Contact end -->
-
-
-
-
+  <!-- Contact end -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqMeDwiX_wRA19g5lT-6Egj9fQQaMkzqP6uQoC0ipCa5xPm97q1xLi34chFqon_EXNKA/exec'
+    const form = document.forms['contact-form-submissions']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
