@@ -156,39 +156,68 @@
 </div>
 <!-- Project end -->
 
-<!-- Contact Start -->
-<div class="container-contact" id="contact">
-  <h1>Contact Me</h1>
-  <div class="contact-form">
-      <h2>Contact Form</h2>
-      <form name='contact-form-submissions'>
+  <!-- Contact Start -->
+
+  <div class="background-contact">
+    <div class="container-contact" id="contact">
+      <h1>Contact Me</h1>
+      <div class="contact-form">
+        <h2>Contact Form</h2>
+        <form name="contact-form-submissions">
           <label for="name">Name *</label>
           <input type="text" id="name" name="Name" required>
-
+  
           <label for="email">Email *</label>
           <input type="email" id="email" name="Email" required>
-
+  
           <label for="phone">Phone No (Optional)</label>
           <input type="tel" id="phone" name="Phone No">
-
+  
           <label for="message">Message *</label>
           <textarea id="message" name="Message" rows="5" required></textarea>
-
-          <button type="submit">Send</button>
-      </form>
+  
+          <button type="submit">
+            Send
+            <span class="spinner"></span>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
   <!-- Contact end -->
+
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqMeDwiX_wRA19g5lT-6Egj9fQQaMkzqP6uQoC0ipCa5xPm97q1xLi34chFqon_EXNKA/exec'
-    const form = document.forms['contact-form-submissions']
-  
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqMeDwiX_wRA19g5lT-6Egj9fQQaMkzqP6uQoC0ipCa5xPm97q1xLi34chFqon_EXNKA/exec';
+    const form = document.forms['contact-form-submissions'];
+    const button = form.querySelector('button');
+    const spinner = form.querySelector('.spinner');
+
     form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
+      e.preventDefault();
+
+      // Show spinner and disable button
+      spinner.style.display = 'inline-block';
+      button.disabled = true;
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          console.log('Success!', response);
+          alert('Message sent successfully!');
+
+          // Hide spinner, enable button, and reset form
+          spinner.style.display = 'none';
+          button.disabled = false;
+          form.reset();
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          alert('Failed to send message!');
+
+          // Hide spinner and enable button
+          spinner.style.display = 'none';
+          button.disabled = false;
+        });
+    });
   </script>
 </body>
 </html>
