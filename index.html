@@ -187,12 +187,12 @@
   <!-- Contact end -->
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqMeDwiX_wRA19g5lT-6Egj9fQQaMkzqP6uQoC0ipCa5xPm97q1xLi34chFqon_EXNKA/exec';
-    const form = document.forms['contact-form-submissions'];
-    const button = form.querySelector('button');
-    const spinner = form.querySelector('.spinner');
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyqMeDwiX_wRA19g5lT-6Egj9fQQaMkzqP6uQoC0ipCa5xPm97q1xLi34chFqon_EXNKA/exec';
+      const form = document.forms['contact-form-submissions'];
+      const button = form.querySelector('button');
+      const spinner = form.querySelector('.spinner')
 
-    form.addEventListener('submit', e => {
+      form.addEventListener('submit', e => {
       e.preventDefault();
 
       // Show spinner and disable button
